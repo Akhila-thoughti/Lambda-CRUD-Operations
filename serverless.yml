@@ -1,0 +1,52 @@
+service: user
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3000
+    websocketPort: 4000
+    lambdaPort: 5000
+
+functions:
+  user:
+    handler: user
+    name: user
+    events:
+      - http:
+          path: user
+          method: get
+
+  createRecord:
+    handler: handler.createRecord
+    name: createRecord
+    events:
+      - http:
+          path: createRecord 
+          method: post
+          cors: true
+
+  updateUser:
+    handler: handler.updateUser
+    name: updateUser
+    events:
+      - http:
+          path: updateUser/{id}
+          method: put
+          cors: true 
+           
+  deleteUser:
+    handler: handler.deleteUser
+    name: deleteUser
+    events:
+      - http:
+          path: deleteUser/{id}
+          method: delete
+          cors: true 
+ 

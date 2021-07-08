@@ -1,1 +1,19 @@
-
+{
+  "name": "user",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "start": "serverless offline start --skipCacheInvalidation --port 3002",
+    "deploy": "sls deploy -v"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-offline": "^7.0.0"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
